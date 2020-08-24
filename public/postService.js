@@ -9,8 +9,9 @@ function subscribePost(){
   
   postListener.onSnapshot((querySnapshot) => {
     // Reset page
-    document.querySelector('#mypost').innerHTML = "";
-  
+    if(document.querySelector('#post')!=null){
+     document.querySelector('#post').innerHTML = "";
+    }
     
     // Loop through documents in database
     querySnapshot.forEach((doc) => {
@@ -19,7 +20,7 @@ function subscribePost(){
    var entryPostTitle = document.createElement("div")
    var entryPostContent = document.createElement("div")
    
-   
+    
 
    entryPostTitle.textContent = doc.data().title;
    entryPostContent.textContent = doc.data().content;
@@ -34,13 +35,14 @@ function subscribePost(){
    li.appendChild(entryPostContent);
    
    
-
-   document.querySelector('#mypost').appendChild(li);
+   if(document.querySelector('#post')!=null){
+   document.querySelector('#post').appendChild(li);
+   }
     });
    });
     
   }
-   window.onload=subscribePost;
+   subscribePost();
 
 function subscribemyPost(){
   
@@ -51,8 +53,9 @@ function subscribemyPost(){
 
   myPostListener.onSnapshot((querySnapshot) => {
  // Reset page
+ if(document.querySelector('#mypost')!=null){
  document.querySelector('#mypost').innerHTML = "";
- 
+ }
  
 
  
@@ -95,7 +98,7 @@ function subscribemyPost(){
     var eTitle = localStorage.getItem(doc.data().title)
     var eContent = localStorage.getItem(doc.data().content)
 
-    console.log(id);
+    
     
     
     onEdit(eTitle,eContent,id);
@@ -130,13 +133,16 @@ function subscribemyPost(){
    li.appendChild(entry1);
    li.appendChild(entry2);
    li.appendChild(mpbutton);
-   
+   if(document.querySelector('#mypost')!=null){
    document.querySelector('#mypost').appendChild(li);
+   }
+
  });
 });
 
 
 }
+
 
 
 
@@ -170,7 +176,6 @@ function subscribemyPost(){
 
 
 
-   console.log(uTitle)
 
 
 }
@@ -183,7 +188,6 @@ function subscribemyPost(){
   var Title = document.getElementById("txtTitle");
   var Content = document.getElementById("txtContent");
   
-console.log(Title); 
 
 if(Title.value!=""){
   
@@ -210,18 +214,29 @@ function  onEdit(eTitle,eContent,id){
   document.querySelector('#updtTitle').value = eTitle;
   document.querySelector('#updtContent').value = eContent;
   document.querySelector('#updtButton').setAttribute('data-id',id)
-
-  console.log(document.querySelector('#updtButton').getAttribute('data-id'));
+  document.querySelector('#updtTitle').focus();
+  
 }
 
- function onPost(){
-  onNavigate('/');
+ function onReset(){
+  onNavigate('/reset');
 
-  window.onload=subscribePost;
+  
+    document.querySelector('#txtREmail').focus();
+  
+   
 
  }
+ document.getElementById("btna").addEventListener('click',(e)=>{
+  e.stopPropagation();
+  document.getElementById("txtTitle").focus();
 
- 
+ })
 
+ document.getElementById("btnlogin").addEventListener('click',(e)=>{
+  e.stopPropagation();
+  document.getElementById("txtEmail").focus();
+
+ })
  
     

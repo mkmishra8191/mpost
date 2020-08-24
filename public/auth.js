@@ -12,14 +12,14 @@
 
 
 }).then(res => {
-  console.log(res);
+  
   
   
     successMessage.innerHTML="";
     errorMessage.innerHTML="";
 
     onNavigate('/');
-
+    subscribePost();
 
   
 },
@@ -47,13 +47,13 @@ err => {
 
 
 }).then(res => {
-  console.log(res);
+  
   
   
     successMessage.innerHTML="";
     errorMessage.innerHTML="";
     onNavigate('/');
-
+    subscribePost();
 
   
 },
@@ -72,7 +72,7 @@ err => {
     
 
     function resetPassword(resolve,reject){
-        var email = document.getElementById("txtEmail");
+        var email = document.getElementById("txtREmail");
         
         return new Promise((resolve, reject) => {
  firebase.auth().sendPasswordResetEmail(email.value)
@@ -82,7 +82,7 @@ err => {
 
 
 }).then(res => {
-  console.log(res);
+  
   
   
     successMessageR.innerHTML="Link has been sent to your email address.";
@@ -107,7 +107,9 @@ err => {
     function signOut(){
         
         auth.signOut();
-        alert("Signed Out");
+        onNavigate('/');
+        subscribePost();
+        
         
     }
     
@@ -134,8 +136,8 @@ err => {
              x.setAttributeNode(y);
              
             
-             subscribePost();
-           
+             
+             subscribemyPost();
               
             
            // is signed in
@@ -149,9 +151,9 @@ err => {
             document.getElementById("btnLogout").setAttribute("hidden",true)
 
             
+            
 
-
-            subscribePost();
+            
             
             
             //no user is signed in

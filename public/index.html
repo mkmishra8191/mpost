@@ -19,31 +19,45 @@
     
 </head>
 <body>
-  <nav>
+
+  
+
+  <div>
+  <nav class="row">
          
         
+     <div class="col-9"> 
+
+      <span id="noFloat">
            
     <a href="#" onclick="onNavigate('/'); subscribePost(); return false;">Post</a>
-     <a href="#" hidden onclick="onNavigate('/'); subscribemyPost(); return false;" id="btnp" >My Post</a>
+     <a href="#" hidden onclick="onNavigate('/myPost'); subscribemyPost(); return false;" id="btnp" >My Post</a>
     <a href="#" hidden onclick="onNavigate('/dashboard'); return false;" id="btna">Add Post</a>
+  </span>
+  </div> 
+    <div class="col-3">
     <span id="Float">
      <a  href="#"  hidden onclick =" signOut(); onNavigate('/');"  id="btnLogout">Log out</a>
        <a href="#"   onclick="onNavigate('/login'); return false; " id="btnlogin">Login</a>
      </span>
+    </div>
 </nav>
+</div>
     
     
 
 
 
 
-  <section id="root"><section ><ul id="mypost"></ul></section> </section>
+  <section id="root"></section>
   
-  
+  <script>var home=`<div class="row"><div class="col-7"><ul id="post"></ul></div></div>`
+         var  myPost=`<div class="row"><div class="col-7"><ul id="mypost"></ul></div></div>`
+  </script>
     
   
   
-  <script src="home.js"></script>
+  
   <script src="update.js"></script>
   <script  src="dashboard.js"></script>
     <script src="login.js"></script>
@@ -71,11 +85,11 @@
 
 
     
-    <script src="auth.js"></script>
     
     <script  src="router.js"></script> 
     <script src="postService.js"></script>
     <script src="auth.js"></script>
+
 
       
 

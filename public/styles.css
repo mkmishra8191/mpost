@@ -1,20 +1,52 @@
-#root {
-
-    margin-left: 15%;
+* {
+    box-sizing: border-box;
+  }
+  
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  [class*="col-"] {
+    float: left;
     
+  }
+  
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 { width: 50%; }
+ 
+  
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+  
 
-}
+
+
+
+
+
+
+
 
  
   
-#mypost li{  
+li{  
     word-wrap:break-word;
     font: 1em sans-serif;
     padding: 15px;
     padding-right: 5px;
     margin-bottom: 5%;
     color: white;
-    width: 50%;
+    width: 80%;
     list-style: none;
     background-color: blue;
     
@@ -25,22 +57,25 @@
 li:nth-child(even){
     
 
-    margin-left: 30%;
+    margin-left: 90%;
 }
 
 .container{
-    width: 40%;
+    
     margin-top: 100px;
-    margin-left: 20%;
-    background-color: blue;
+    
+    margin-left: 30%;
     
     
     
     
 }
+
+
 #box{
     
-    margin-left: 16%;
+    background-color: blue;
+    
     padding-bottom:37px ;
     padding-top:50px ;
 }
@@ -50,38 +85,43 @@ li:nth-child(even){
     
     float: right;
 
-    margin-right: 19%;
+    margin-right: 10%;
 }
 
-    
+  #btnLogin{
+      margin-left: 10%;
+  }  
 
-.btn{
-    
-    margin-left: 35%;
-}
 #errorMessage,#successMessage{
-    margin-left: 30%;
+    margin-left: 25%;
 }
 #successMessageR,#errorMessageR{
-    margin-left: 30%;
+    margin-left: 25%;
 }
 
 #btnReset{
+
+    display: flex;
+    justify-content: center;
     
-    margin-left: 26%;
+    
 }
 #Float{
     float: right;
     outline-style: none;
     font: xx-large;
     font: bold;
-    margin-right: 20px;
+    margin-right: 5%;
+}
+
+#noFloat a{
+    margin-left: 2%;
 }
 a{
     text-decoration: none;
     color: white;
-    margin-left: 20px;
-    font-size: 25px;
+    
+    font-size: 20px;
     font: bold;
     
 }
@@ -99,13 +139,23 @@ body{
 
 
 textarea{
+    
 
     width: 80%;
 }
 
-#txtEmail, #txtPassword{
+#txtEmail, #txtPassword,#txtREmail{
+    
     width: 80%;
 }
+
+.xyz{
+    display: flex;
+    justify-content: center;
+
+}
+
+
 
 
 

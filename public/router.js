@@ -1,6 +1,7 @@
 
  var routes = {
   '/' : home,
+  '/myPost':myPost,
    '/login' : login,
    '/logout' : logout,
    '/reset': reset,
@@ -9,6 +10,7 @@
    };
  var rootDiv = document.getElementById('root');
  rootDiv.innerHTML = routes[window.location.pathname]
+
 
 
  
@@ -24,10 +26,7 @@ function onNavigate(pathname){
    
  }
  
- window.onpopstate = () => {
-   rootDiv.innerHTML = routes[window.location.pathname]
-    
- }
+
 
  
   
